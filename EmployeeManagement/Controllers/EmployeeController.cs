@@ -18,32 +18,39 @@ namespace EmployeeManagement.Controllers
         { EmployeeId = 1,EmployeeName = "Jay",EmployeeDepartment="Clerk"},
 
             new Employee()
-        { EmployeeId = 2,EmployeeName = "Jenny"},
+        { EmployeeId = 2,EmployeeName = "Jenny", EmployeeDepartment="Junior Manager"},
 
             new Employee()
-        { EmployeeId = 3,EmployeeName = "Dhrutika" },
+        { EmployeeId = 3,EmployeeName = "Dhrutika",EmployeeDepartment="Senior Manager" },
 
             new Employee()
-        { EmployeeId = 4,EmployeeName = "Sarfaraz" },
+        { EmployeeId = 4,EmployeeName = "Sarfaraz",EmployeeDepartment="Purchase" },
 
             new Employee()
-        { EmployeeId = 5,EmployeeName = "Ketan" },
+        { EmployeeId = 5,EmployeeName = "Ketan",EmployeeDepartment="Sales" },
 
             new Employee()
-        { EmployeeId = 6,EmployeeName = "Bhavdip" },
+        { EmployeeId = 6,EmployeeName = "Bhavdip",EmployeeDepartment="Production" },
 
             new Employee()
-        { EmployeeId = 7,EmployeeName = "Ruchi" },
+        { EmployeeId = 7,EmployeeName = "Ruchi",EmployeeDepartment="Supply Chain Management" },
 
         };
 }
         public IActionResult Index()
         {
-            ViewBag.Name = "1Rivet";
+            ViewBag.Name = "HCL";
             ViewData["Address"] = "Navsari";
             return View(_employee);
         }
 
-       
+        // GET: EmployeeManagement/id/5
+        public IActionResult ViewById(int id)
+        {
+            var employee = _employee.FirstOrDefault(Option => Option.EmployeeId == id);
+            return View(employee);
+        }
+
+
     }
 }
