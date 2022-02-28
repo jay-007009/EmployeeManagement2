@@ -26,12 +26,16 @@
         <tr>
             <th>Employee Id </th>
             <th>EmployeeName </th>
+            <th> Employee Department</th>
+            <th>Employee View Details</th>
         </tr>
         @foreach (var employee in Model)
         {
             <tr>
-                <td><a href=@employee.EmployeeId</td>
+                <td>@employee.EmployeeId</td>
                 <td>@employee.EmployeeName</td>
+                <td>@employee.EmployeeDepartment</td>
+                <td>@Html.ActionLink("View Employee", "ViewById", new { id = employee.EmployeeId })</td>
             </tr>
 
         }

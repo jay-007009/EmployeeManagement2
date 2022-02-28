@@ -23,7 +23,7 @@ namespace EmployeeManagement.Controllers
         public IActionResult Index()
         {
             TempData["Name"] = "Jay Patel ";
-            TempData["Contact"] = 2555666;
+          //  TempData["Contact"] = 2555666;
             TempData.Keep();
             return View();
         }
@@ -35,13 +35,14 @@ namespace EmployeeManagement.Controllers
             return View();
         }
 
+        
 
 
         public IActionResult Result()
         {
             ViewData["Name"] = TempData["Name"];
-            string str = TempData.Peek("Contact").ToString();
-            TempData["Contact"] = str;
+          //  string str = TempData.Peek("Contact").ToString();
+            //TempData["Contact"] = str;
             return View();
         }
 
