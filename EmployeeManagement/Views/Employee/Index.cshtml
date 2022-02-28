@@ -1,0 +1,40 @@
+﻿
+
+@{
+
+
+
+    @model IEnumerable<Employee>
+    ViewBag.Title = "Employee";
+
+    <div><b><h2>Employee Information</h2></b><br /></div>
+    <br />
+
+    
+
+
+
+
+    <table class="table table-bordered " align="center">
+
+        <h5>Name:-  @ViewBag.Name</h5> 
+        
+        <h6>Address:- @ViewData["Address"]</h6> 
+        <br />
+        @*@TempData["Name"]*@
+
+        <tr>
+            <th>Employee Id </th>
+            <th>EmployeeName </th>
+        </tr>
+        @foreach (var employee in Model)
+        {
+            <tr>
+                <td><a href=@employee.EmployeeId</td>
+                <td>@employee.EmployeeName</td>
+            </tr>
+
+        }
+    </table>
+
+}
