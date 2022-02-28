@@ -39,7 +39,7 @@ namespace EmployeeManagement.Controllers
 }
         public IActionResult Index()
         {
-            ViewBag.Name = "Ketan";
+            ViewBag.Name = "1Rivet";
             ViewData["Address"] = "Navsari";
             return View(_employee);
         }
