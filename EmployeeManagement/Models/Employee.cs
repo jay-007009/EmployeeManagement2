@@ -10,7 +10,7 @@ namespace EmployeeManagement.Models
     {
        
         public int EmployeeId { get; set; }
-        [Required(ErrorMessage ="Name is required")]
+        //[Required(ErrorMessage ="Name is required")]
         public string EmployeeName { get; set; }
 
        public string EmployeeDepartment { get; set; }

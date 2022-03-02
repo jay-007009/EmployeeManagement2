@@ -1,0 +1,36 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+
+    <div class="text-center">
+        <h3>Employee Details</h3>
+
+    </div>
+    <table class="table table-bordered " align="center">
+        <tr>
+
+            <th>  <h6>Employee Id </h6> </th>
+
+            <th> <h6>Employee Name </h6></th>
+
+            <th> <h6>Employee Department </h6> </th>
+
+            <th> <h6>Company Name </h6> </th>
+            <th> <h6>Company Address </h6> </th>
+        </tr>
+
+        <tr>
+            <td>@Model.EmployeeId</td>
+            <td>@Model.EmployeeName</td>
+            <td>@Model.EmployeeDepartment</td>
+            <td> @TempData["Name"]</td>
+            <td>@TempData["Address"]</td>
+        </tr>
+    </table>
+    <br />
+        <h4>
+            <a asp-action="Index" asp-controller="Employee">Back</a>
+        </h4>
+       
+        }

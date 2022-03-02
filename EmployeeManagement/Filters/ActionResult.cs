@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc.Filters;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -8,11 +9,18 @@ using System.Threading.Tasks;
 
 namespace EmployeeManagement.Filters
 {
-    public class ActionResult : ActionFilterAttribute
+    [AttributeUsage(
+        AttributeTargets.Method,
+        AllowMultiple =true)]
+    public class ActionResult : ActionFilterAttribute /*Attribute, IAsyncActionFilter*/
     {
         public override void OnActionExecuted(ActionExecutedContext filterContext)
         {
-           Debug.WriteLine("***********Action Executed**************");  /* --2*/
+            (filterContext.Result as ViewResult).ViewData["Name"] = "jay patel";
+            base.OnActionExecuted(filterContext);
+
+            Debug.WriteLine("***********Action Executed**************");  /* --2*/
+
         }
 
         public override void OnActionExecuting(ActionExecutingContext filterContext)
@@ -27,10 +35,14 @@ namespace EmployeeManagement.Filters
 
         public override void OnResultExecuting(ResultExecutingContext filterContext)
         {
+            (filterContext.Result as ViewResult).ViewData["Name"] = "kumar patel";
+            base.OnResultExecuting(filterContext);
+
             Debug.WriteLine("********Result Executing*********************"); /*--3*/
         }
-
-
-
+        //public Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
+        //{
+        //    await.next();
+        //}
     }
 }
